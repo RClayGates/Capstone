@@ -30,9 +30,9 @@ TODO:
 - [ ] GUI
     - [x] For each hash: Display VirusTotal results 
     - [x] For each hash: Enable shortcut to Virustotal webpage
-    - [ ] Implement table filter when given a string 
+    - [x] Implement table filter when given a string 
         Extra:
-        - [ ] Add regex functionality
+        - [x] Add regex functionality
     - [ ] Error Handling
         Extra:
         - [ ] Window for Console Logs

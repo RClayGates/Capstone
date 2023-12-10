@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # imports: std
+import re
 import threading
 import tkinter as tk
 from tkinter import ttk
@@ -38,7 +39,8 @@ class CapstoneGuiAppTL_00:
         self.Toplevel_00.title("Capstone")
         self.Toplevel_00.resizable(False, False)
         # Initial Boot up ---V
-        self.data_loaded = tk.IntVar(value=0)
+        self.data_loaded = tk.IntVar(value=1)
+
         # TODO: work on a good startup implementation that doesn't leave the user waiting for ui
         # self.__local_cache = self.kwargs.get('local_cache')()
         # self.__vt_cache = self.kwargs.get('vt_cache')()
@@ -108,32 +110,32 @@ class CapstoneGuiAppTL_00:
         #
         # Tl_00:F_01
         # TODO: FILTER IMPLEMENTATION Uncomment when filter functionality works
-        # self.Frame_02 = ttk.Frame(self.Frame_01)
-        # self.Frame_02.configure(height=200, width=200)
+        self.Frame_02 = ttk.Frame(self.Frame_01)
+        self.Frame_02.configure(height=200, width=200)
         #
         # Tl_00:F_01:F_02
         # TODO: FILTER IMPLEMENTATION Uncomment when filter functionality works
-        # self.Entry_01_var = tk.StringVar()
-        # self.Entry_01 = ttk.Entry(self.Frame_02, textvariable=self.Entry_01_var)
-        # self.Entry_01.grid(column=1, padx=6, row=0)
+        self.Entry_01_var = tk.StringVar()
+        self.Entry_01 = ttk.Entry(self.Frame_02, textvariable=self.Entry_01_var)
+        self.Entry_01.grid(column=1, padx=6, row=0)
         # Tl_00:F_01:F_02
         # TODO: FILTER IMPLEMENTATION Uncomment when filter functionality works
-        # self.Label_07 = ttk.Label(self.Frame_02)
-        # self.Label_07.configure(text="Filepath Filter")
-        # self.Label_07.grid(column=0, row=0)
+        self.Label_07 = ttk.Label(self.Frame_02)
+        self.Label_07.configure(text="Filepath Filter")
+        self.Label_07.grid(column=0, row=0)
 
         # String Variable
         # TODO: FILTER IMPLEMENTATION Uncomment when filter functionality works
-        # self.filter_var = tk.StringVar(value="Filter")
+        self.filter_var = tk.StringVar(value="Filter")
         # Tl_00:F_01:F_02
         # TODO: FILTER IMPLEMENTATION Uncomment when filter functionality works
-        # self.Button_01 = ttk.Button(self.Frame_02, command=lambda: self.button_01())
-        # self.Button_01.configure(text="Filter", textvariable=self.filter_var)
-        # self.Button_01.grid(column=2, row=0)
+        self.Button_01 = ttk.Button(self.Frame_02, command=lambda: self.button_01())
+        self.Button_01.configure(text="Filter", textvariable=self.filter_var)
+        self.Button_01.grid(column=2, row=0)
 
         # Tl_00:F_01:F_02
         # TODO: FILTER IMPLEMENTATION Uncomment when filter functionality works
-        # self.Frame_02.grid(column=1, padx=6, row=1, sticky="e")
+        self.Frame_02.grid(column=1, padx=6, row=1, sticky="e")
         #
         # Tl_00:F_01
         self.Frame_03 = ttk.Frame(self.Frame_01)
@@ -183,11 +185,13 @@ class CapstoneGuiAppTL_00:
         self.treeview_01.heading("column_03", anchor="w", text="Age (First Submitted)")
         self.treeview_01.heading("column_04", anchor="w", text="Filepath")
         # important treeview logic
-        for args in self.test_treeview_01_insert():
-            # print(args)
+        self.treeview_01_data = []
+        for args in self.treeview_01_insert():
+            self.treeview_01_data.append(args)
             self.treeview_01.insert(
                 parent=args[0], index=args[1], values=args[2], tags="cn"
             )
+
         self.treeview_01.tag_configure("cn", font=("Courier", 10))
         self.treeview_01.grid(column=0, columnspan=2, padx="6 0", pady="6 0", row=2)
         # Tl_00: F_01 Scroll bar needs to be after target is initialised
@@ -257,13 +261,20 @@ class CapstoneGuiAppTL_00:
     # return self.kwargs.get("startup", False)()
 
     # TODO: FILTER IMPLEMENTATION Uncomment when filter functionality works
-    # def button_01(self):
-    #     table_filter = self.Entry_01_var.get()
-    #     if len(table_filter) > 0:
-    #         self.treeview_01.delete(
-    #             *self.treeview_01.get_children()
-    #         )  # using splat (*) to unpack get_children
-    #     self.test_treeview_01_insert(_filter=table_filter)
+    def button_01(self):
+        table_filter = self.Entry_01_var.get()
+        pattern = re.compile(table_filter)
+        self.treeview_01.delete(
+            *self.treeview_01.get_children()
+        )  # * operator used to auto unpack children
+        for row_id in self.treeview_01_data:
+            match = pattern.search(row_id[-1][-1])
+            if match:
+                #     print(match.group())
+                # if table_filter in row_id[-1][-1]:
+                self.treeview_01.insert(
+                    parent=row_id[0], index=row_id[1], values=row_id[2], tags="cn"
+                )
 
     def button_02(self):
         for value in self.treeview_01.selection():
@@ -342,7 +353,7 @@ class CapstoneGuiAppTL_00:
     #         self.treeview_01_var.set(self.treeview_01.item(value)["values"][0])
     #         print(self.treeview_01_var.get())
 
-    def test_treeview_01_insert(self, _filter=None):
+    def treeview_01_insert(self, _filter=None):
         # TODO: FILTER IMPLEMENTATION
         """
         Must be a "for yield" loop
