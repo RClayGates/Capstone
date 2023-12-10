@@ -2,8 +2,10 @@
 # imports: std
 import re
 import threading
+import traceback
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox
 from datetime import datetime
 
 
@@ -38,6 +40,7 @@ class CapstoneGuiAppTL_00:
         self.Toplevel_00 = tk.Tk() if master is None else tk.Toplevel(master)
         self.Toplevel_00.title("Capstone")
         self.Toplevel_00.resizable(False, False)
+        self.Toplevel_00.report_callback_exception = self.show_error
         # Initial Boot up ---V
         self.data_loaded = tk.IntVar(value=1)
 
@@ -109,32 +112,33 @@ class CapstoneGuiAppTL_00:
         self.Labelframe_02.grid(column=1, padx=6, row=0, sticky="ew")
         #
         # Tl_00:F_01
-        # TODO: FILTER IMPLEMENTATION Uncomment when filter functionality works
+        # TODONE: FILTER IMPLEMENTATION Uncomment when filter functionality works
         self.Frame_02 = ttk.Frame(self.Frame_01)
         self.Frame_02.configure(height=200, width=200)
         #
         # Tl_00:F_01:F_02
-        # TODO: FILTER IMPLEMENTATION Uncomment when filter functionality works
+        # TODONE: FILTER IMPLEMENTATION Uncomment when filter functionality works
         self.Entry_01_var = tk.StringVar()
+        self.Entry_01.bind("<Return>", lambda: self.button_01())
         self.Entry_01 = ttk.Entry(self.Frame_02, textvariable=self.Entry_01_var)
         self.Entry_01.grid(column=1, padx=6, row=0)
         # Tl_00:F_01:F_02
-        # TODO: FILTER IMPLEMENTATION Uncomment when filter functionality works
+        # TODONE: FILTER IMPLEMENTATION Uncomment when filter functionality works
         self.Label_07 = ttk.Label(self.Frame_02)
         self.Label_07.configure(text="Filepath Filter")
         self.Label_07.grid(column=0, row=0)
 
         # String Variable
-        # TODO: FILTER IMPLEMENTATION Uncomment when filter functionality works
+        # TODONE: FILTER IMPLEMENTATION Uncomment when filter functionality works
         self.filter_var = tk.StringVar(value="Filter")
         # Tl_00:F_01:F_02
-        # TODO: FILTER IMPLEMENTATION Uncomment when filter functionality works
+        # TODONE: FILTER IMPLEMENTATION Uncomment when filter functionality works
         self.Button_01 = ttk.Button(self.Frame_02, command=lambda: self.button_01())
         self.Button_01.configure(text="Filter", textvariable=self.filter_var)
         self.Button_01.grid(column=2, row=0)
 
         # Tl_00:F_01:F_02
-        # TODO: FILTER IMPLEMENTATION Uncomment when filter functionality works
+        # TODONE: FILTER IMPLEMENTATION Uncomment when filter functionality works
         self.Frame_02.grid(column=1, padx=6, row=1, sticky="e")
         #
         # Tl_00:F_01
@@ -226,6 +230,11 @@ class CapstoneGuiAppTL_00:
 
     def run(self):
         self.mainwindow.mainloop()
+
+    def show_error(self, *args):
+        src_log.error(f"{args = }")
+        error = traceback.format_exception(*args)
+        messagebox.showerror("Exception", error)
 
     def create_Menu_01(self, master):
         self.Menu_01 = tk.Menu(master)
