@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.3">
+  <object class="tk.Toplevel" id="Toplevel_00" named="True">
+    <property name="height">200</property>
+    <property name="width">200</property>
+    <containerlayout manager="grid">
+      <property type="col" id="all" name="weight">1</property>
+      <property type="row" id="all" name="weight">1</property>
+    </containerlayout>
+    <child>
+      <object class="ttk.Frame" id="frame_01" named="True">
+        <property name="padding">6</property>
+        <property name="relief">sunken</property>
+        <layout manager="grid">
+          <property name="column">0</property>
+          <property name="row">0</property>
+        </layout>
+        <containerlayout manager="grid">
+          <property type="col" id="0" name="weight">1</property>
+          <property type="col" id="all" name="weight">1</property>
+          <property type="row" id="0" name="weight">1</property>
+          <property type="row" id="all" name="weight">1</property>
+        </containerlayout>
+        <child>
+          <object class="ttk.Labelframe" id="Labelframe_01" named="True">
+            <property name="height">200</property>
+            <property name="text" translatable="yes">Reputation Range</property>
+            <property name="width">200</property>
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="padx">6</property>
+              <property name="pady">6</property>
+              <property name="row">0</property>
+              <property name="sticky">ew</property>
+            </layout>
+            <child>
+              <object class="ttk.Label" id="Label_01" named="True">
+                <property name="text" translatable="yes">Less than 0</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="row">0</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="Label_02" named="True">
+                <property name="text" translatable="yes">0-100</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="row">1</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="Label_03" named="True">
+                <property name="text" translatable="yes">More than 100</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Labelframe" id="Labelframe_02" named="True">
+            <property name="height">200</property>
+            <property name="text" translatable="yes">File Count</property>
+            <property name="width">200</property>
+            <layout manager="grid">
+              <property name="column">1</property>
+              <property name="padx">6</property>
+              <property name="row">0</property>
+              <property name="sticky">ew</property>
+            </layout>
+            <child>
+              <object class="ttk.Label" id="Label_04" named="True">
+                <property name="text" translatable="yes">...</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="Label_05" named="True">
+                <property name="text" translatable="yes">...</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="Label_06" named="True">
+                <property name="text" translatable="yes">...</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Frame" id="Frame_02" named="True">
+            <property name="height">200</property>
+            <property name="width">200</property>
+            <layout manager="grid">
+              <property name="column">1</property>
+              <property name="padx">6</property>
+              <property name="row">1</property>
+              <property name="sticky">e</property>
+            </layout>
+            <child>
+              <object class="ttk.Entry" id="Entry_01" named="True">
+                <layout manager="grid">
+                  <property name="column">1</property>
+                  <property name="padx">6</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="Label_07" named="True">
+                <property name="text" translatable="yes">Filepath Filter</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Button" id="Button_01" named="True">
+                <property name="text" translatable="yes">Filter</property>
+                <property name="textvariable">string:filter_var</property>
+                <layout manager="grid">
+                  <property name="column">2</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Frame" id="Frame_03" named="True">
+            <property name="height">200</property>
+            <property name="width">200</property>
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="padx">6</property>
+              <property name="row">1</property>
+              <property name="sticky">w</property>
+            </layout>
+            <child>
+              <object class="ttk.Button" id="Button_02" named="True">
+                <property name="text" translatable="yes">Visit VirusTotal Webpage</property>
+                <layout manager="grid">
+                  <property name="column">1</property>
+                  <property name="padx">6</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="Label_11" named="True">
+                <property name="text" translatable="yes">Select Hash from Table:</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Treeview" id="treeview_01" named="True">
+            <property name="height">20</property>
+            <property name="selectmode">extended</property>
+            <property name="show">headings</property>
+            <property name="yscrollcommand" type="command" cbtype="scrollset">treeview_yscroll</property>
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="columnspan">2</property>
+              <property name="padx">6 0</property>
+              <property name="pady">6 0</property>
+              <property name="row">2</property>
+            </layout>
+            <child>
+              <object class="ttk.Treeview.Column" id="column_01" named="True">
+                <property name="column_anchor">w</property>
+                <property name="heading_anchor">w</property>
+                <property name="minwidth">20</property>
+                <property name="stretch">true</property>
+                <property name="text" translatable="yes">Hash</property>
+                <property name="tree_column">false</property>
+                <property name="visible">true</property>
+                <property name="width">200</property>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Treeview.Column" id="column_02" named="True">
+                <property name="column_anchor">w</property>
+                <property name="heading_anchor">w</property>
+                <property name="minwidth">20</property>
+                <property name="stretch">true</property>
+                <property name="text" translatable="yes">VirustTotal Reputation</property>
+                <property name="tree_column">false</property>
+                <property name="visible">true</property>
+                <property name="width">200</property>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Treeview.Column" id="column_03" named="True">
+                <property name="column_anchor">w</property>
+                <property name="heading_anchor">w</property>
+                <property name="minwidth">20</property>
+                <property name="stretch">true</property>
+                <property name="text" translatable="yes">Age (First Submitted)</property>
+                <property name="tree_column">false</property>
+                <property name="visible">true</property>
+                <property name="width">200</property>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Treeview.Column" id="column_04" named="True">
+                <property name="column_anchor">w</property>
+                <property name="heading_anchor">w</property>
+                <property name="minwidth">20</property>
+                <property name="stretch">true</property>
+                <property name="text" translatable="yes">Filepath</property>
+                <property name="tree_column">false</property>
+                <property name="visible">true</property>
+                <property name="width">200</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Scrollbar" id="Scrollbar_01" named="True">
+            <property name="command" type="command" cbtype="scroll">yview</property>
+            <property name="orient">vertical</property>
+            <layout manager="grid">
+              <property name="column">3</property>
+              <property name="padx">0 6</property>
+              <property name="pady">6 0</property>
+              <property name="row">2</property>
+              <property name="sticky">ns</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Scrollbar" id="scrollbar4">
+            <property name="orient">horizontal</property>
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="columnspan">2</property>
+              <property name="padx">6 0</property>
+              <property name="row">3</property>
+              <property name="sticky">ew</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="tk.Menu" id="Menu_01" named="True">
+    <property name="tearoff">false</property>
+    <property name="title" translatable="yes">test</property>
+    <child>
+      <object class="tk.Menuitem.Command" id="MCommand_00" named="True">
+        <property name="label" translatable="yes">Show Console Logs</property>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Menuitem.Submenu" id="Submenu_00" named="True">
+        <property name="label" translatable="yes">Cache Commands (Advanced)</property>
+        <property name="tearoff">false</property>
+        <child>
+          <object class="tk.Menuitem.Command" id="SMCommand_00" named="True">
+            <property name="label" translatable="yes">Update Local Cache</property>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Menuitem.Command" id="SMCommand_01" named="True">
+            <property name="label" translatable="yes">Update VirusTotal Cache</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="tk.Toplevel" id="Toplevel_01" named="True">
+    <property name="height">200</property>
+    <property name="width">200</property>
+    <containerlayout manager="grid">
+      <property type="col" id="all" name="weight">1</property>
+      <property type="row" id="all" name="weight">1</property>
+    </containerlayout>
+    <child>
+      <object class="ttk.Frame" id="frame1">
+        <property name="height">200</property>
+        <property name="relief">sunken</property>
+        <property name="width">200</property>
+        <layout manager="grid">
+          <property name="column">0</property>
+          <property name="padx">6</property>
+          <property name="pady">6</property>
+          <property name="row">1</property>
+        </layout>
+        <child>
+          <object class="ttk.Labelframe" id="Labelframe_03" named="True">
+            <property name="height">200</property>
+            <property name="text" translatable="yes">Console Log</property>
+            <property name="width">200</property>
+            <layout manager="pack" />
+            <child>
+              <object class="ttk.Scrollbar" id="scrollbar2">
+                <property name="orient">vertical</property>
+                <layout manager="grid">
+                  <property name="column">1</property>
+                  <property name="padx">0 6</property>
+                  <property name="pady">6 0</property>
+                  <property name="row">0</property>
+                  <property name="sticky">ns</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Text" id="text1">
+                <property name="height">10</property>
+                <property name="width">50</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="padx">6 0</property>
+                  <property name="pady">6 0</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Scrollbar" id="scrollbar3">
+                <property name="orient">horizontal</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="padx">6 0</property>
+                  <property name="pady">0 6</property>
+                  <property name="row">1</property>
+                  <property name="sticky">ew</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
