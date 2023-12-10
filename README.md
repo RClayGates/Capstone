@@ -22,6 +22,7 @@ TODO:
     - [x] Error Handling
 - [x] VirusTotal API
     - [x] Meet Free tier requirements
+        Extra:
         - [ ] Auto schedule/limit daily API calls
     - [x] Error Handling
 ## Phase 3
@@ -30,5 +31,8 @@ TODO:
     - [x] For each hash: Display VirusTotal results 
     - [x] For each hash: Enable shortcut to Virustotal webpage
     - [ ] Implement table filter when given a string 
-        - [ ] add regex functionality
+        Extra:
+        - [ ] Add regex functionality
     - [ ] Error Handling
+        Extra:
+        - [ ] Window for Console Logs
