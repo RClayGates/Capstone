@@ -119,8 +119,8 @@ class CapstoneGuiAppTL_00:
         # Tl_00:F_01:F_02
         # TODONE: FILTER IMPLEMENTATION Uncomment when filter functionality works
         self.Entry_01_var = tk.StringVar()
-        self.Entry_01.bind("<Return>", lambda: self.button_01())
         self.Entry_01 = ttk.Entry(self.Frame_02, textvariable=self.Entry_01_var)
+        self.Entry_01.bind("<Return>", lambda event: self.button_01())
         self.Entry_01.grid(column=1, padx=6, row=0)
         # Tl_00:F_01:F_02
         # TODONE: FILTER IMPLEMENTATION Uncomment when filter functionality works
